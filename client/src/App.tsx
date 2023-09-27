@@ -1,13 +1,14 @@
-import React from "react";
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./components/router/router";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to Fakelandia</h1>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </>
   );
 }
 
