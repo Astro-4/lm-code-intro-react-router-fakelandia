@@ -26,3 +26,12 @@ footer {
 .linkInActive:hover {
   background-color: rgba(27, 145, 219, 0.846);
 }
+
+/* Add this CSS to your stylesheet */
+.valid {
+  border: 2px solid green;
+}
+
+.invalid {
+  border: 2px solid red;
+}
