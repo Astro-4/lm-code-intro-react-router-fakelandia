@@ -1,25 +1,12 @@
-// components/MisdemeanourList.tsx
 import React from "react";
 import { Misdemeanour } from "../types/misdemeanours.types";
-
 interface MisdemeanourListProps {
-  misdemeanours: Misdemeanour[] | null; // Handle the case where misdemeanours is null
+  misdemeanours: Misdemeanour[];
 }
 
 const MisdemeanourList: React.FC<MisdemeanourListProps> = ({
   misdemeanours,
 }) => {
-  if (!misdemeanours) {
-    return <div>Loading misdemeanours...</div>;
-  }
-
-  if (!Array.isArray(misdemeanours)) {
-    return <div>Misdemeanours data is not an array.</div>;
-  }
-
-  if (misdemeanours.length === 0) {
-    return <div>No misdemeanours found.</div>;
-  }
   return (
     <table>
       <thead>
@@ -31,23 +18,20 @@ const MisdemeanourList: React.FC<MisdemeanourListProps> = ({
         </tr>
       </thead>
       <tbody>
-        {misdemeanours.map((m, index) => (
-          <tr key={index}>
-            <td>{m.citizenId}</td>
-            <td>{m.date}</td>
+        {misdemeanours.map((misdemeanour) => (
+          <tr key={misdemeanour.id}>
+            <td>{misdemeanour.citizenId}</td>
+            <td>{misdemeanour.date}</td>
             <td>
-              {m.misdemeanour}{" "}
-              {m.misdemeanour === "rudeness"
-                ? "🤪"
-                : m.misdemeanour === "lift"
-                ? "🗣"
-                : m.misdemeanour === "vegetables"
-                ? "🥗"
-                : m.misdemeanour === "united"
-                ? "😈"
-                : ""}
+              {misdemeanour.misdemeanour}{" "}
+              {misdemeanour.misdemeanour === "Mild Public Rudeness" && "🤪"}
+              {misdemeanour.misdemeanour === "Speaking in a Lift" && "🗣"}
+              {misdemeanour.misdemeanour === "Not Eating Your Vegetables" &&
+                "🥗"}
+              {misdemeanour.misdemeanour === "Supporting Manchester United" &&
+                "😈"}
             </td>
-            <td>{m.punishmentIdea}</td>
+            <td>Punishment Idea Here</td>
           </tr>
         ))}
       </tbody>
