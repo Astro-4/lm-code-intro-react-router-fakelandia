@@ -7,6 +7,8 @@ interface MisdemeanourListProps {
 const MisdemeanourList: React.FC<MisdemeanourListProps> = ({
   misdemeanours,
 }) => {
+  const width = 100;
+  const height = 100;
   return (
     <div>
       <table>
@@ -30,7 +32,13 @@ const MisdemeanourList: React.FC<MisdemeanourListProps> = ({
                 {misdemeanour.misdemeanour === "vegetables" && "🥗"}
                 {misdemeanour.misdemeanour === "united" && "😈"}
               </td>
-              <td>Punishment Idea Here</td>
+              {/* <td>Punishment Idea Here</td> */}
+              <td>
+                <img
+                  src={`https://picsum.photos/${width}/${height}?random=${misdemeanour.citizenId}`}
+                  alt={`Random punishment for misdemeanour ${misdemeanour.citizenId}`}
+                />
+              </td>
             </tr>
           ))}
         </tbody>
